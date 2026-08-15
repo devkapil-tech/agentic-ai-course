@@ -104,16 +104,16 @@ Rules:
 
 ### Example Inputs and JSON Outputs
 
-## Example 1
+#### Example 1
 
 **Input:**
 
 ```text
-
 2x Americano, 1 large fries and 3 hamburger
+```
+**Output:**
 
-# Output:
-
+```json
 {
   "items": [
     {"name": "Americano", "quantity": 2, "size": "regular"},
@@ -124,3 +124,91 @@ Rules:
 }
 ```
 
+#### Example 2
+
+**Input:**
+
+```text
+I'll have a cappuccino and two croissants please
+```
+
+**Output:**
+
+```json
+{
+  "items": [
+    {"name": "Cappuccino", "quantity": 1, "size": "regular"},
+    {"name": "Croissant", "quantity": 2, "size": "regular"}
+  ],
+  "total_items": 3
+}
+```
+
+#### Example 3
+
+**Input:**
+
+```text
+Can I get three iced lattes, make one of them decaf
+```
+
+**Output:**
+
+```json
+{
+  "items": [
+    {"name": "Latte", "quantity": 2, "size": "regular", "options": ["iced"]},
+    {"name": "Latte", "quantity": 1, "size": "regular", "options": ["iced", "decaf"]}
+  ],
+  "total_items": 3
+}
+```
+
+#### Example 4
+
+**Input:**
+
+```text
+One burger meal with coke, and an extra order of fries
+```
+
+**Output:**
+
+```json
+{
+  "items": [
+    {"name": "Burger", "quantity": 1, "size": "regular"},
+    {"name": "Coke", "quantity": 1, "size": "regular"},
+    {"name": "Fries", "quantity": 1, "size": "regular"}
+  ],
+  "total_items": 3
+}
+```
+
+#### Example 5
+
+**Input:**
+
+```text
+I would like two small cappuccinos, one large iced latte with oat milk, and a burger meal with coke.
+```
+
+**Output:**
+
+```json
+{
+  "items": [
+    {"name": "Cappuccino", "quantity": 2, "size": "small"},
+    {"name": "Latte", "quantity": 1, "size": "large", "options": ["iced", "oat milk"]},
+    {"name": "Burger", "quantity": 1, "size": "regular"},
+    {"name": "Coke", "quantity": 1, "size": "regular"}
+  ],
+  "total_items": 5
+}
+```
+
+### Security Note
+
+The ChatGPT OpenAI API key is loaded from an environment variable or temporary `.env` file during runtime.
+
+The real API key is not stored in this README, the notebook, `.env.example`, or the GitHub repository.
